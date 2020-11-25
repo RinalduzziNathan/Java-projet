@@ -4,6 +4,10 @@ public abstract class Personnage {
 
 
     //attributs
+    private int PvMax;
+    private int ManaMax;
+
+
     private int pv;
     private int mana;
     private int lvl;
@@ -15,12 +19,16 @@ public abstract class Personnage {
         mana = 100;
         lvl = 0;
         nom = "Anon";
+        PvMax=pv;
+        ManaMax = mana;
     }
     public  Personnage(int parampv,int parammana,int paramlvl, String paramNom){
-        pv = paramlvl;
+        pv = parampv;
         mana = parammana;
         lvl = paramlvl;
         nom = paramNom;
+        PvMax=pv;
+        ManaMax = mana;
     }
 
     //gestion vie/mana
@@ -40,10 +48,11 @@ public abstract class Personnage {
          mana= montant+mana;
     }
 
-    boolean PerdreVie(int degats){
+    boolean PrendreDesDegats(int degats){
         //Si le joueur est mort
         if(pv-degats<=0){
-            System.out.println("JOUEUR " + nom + " EST MORT");
+            pv=0;
+            System.out.println("JOUEUR " + nom + " EST MORT ");
             return false;
         }else {
             pv = pv - degats;
@@ -55,9 +64,33 @@ public abstract class Personnage {
         pv = montant+pv;
     }
 
+    //gagner un niveau, fct appelé quand notre perso gagne un niveau, il augmente ses stats max, mais cette fonction sera redéfinie car le lvl upde chaque class est différent
+    void GagnerNiveau(){
+        System.out.println("Classe non spécialisée");
+    }
+
+
 
 
     // les get/set
+
+
+    public int getPvMax() {
+        return PvMax;
+    }
+
+    public void setPvMax(int pvMax) {
+        PvMax = pvMax;
+    }
+
+    public int getManaMax() {
+        return ManaMax;
+    }
+
+    public void setManaMax(int manaMax) {
+        ManaMax = manaMax;
+    }
+
     public int getPv() {
         return pv;
     }
