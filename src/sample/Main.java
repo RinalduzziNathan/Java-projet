@@ -17,11 +17,11 @@ public class Main extends Application {
 
         Guerrier G2 = new Guerrier(100,100,1,"Jj");
         Mage G1 = new Mage(50,50,1,"Knb");
+        Archer archer = new Archer(50,50,1,"10",50);
 
-        System.out.println(G1.getMana());
 
         System.out.println(G2.getPv());
-        G1.UtiliserSort1(G2);
+        archer.AttaqueArme(G2);
 
         System.out.println(G2.getPv());
     }

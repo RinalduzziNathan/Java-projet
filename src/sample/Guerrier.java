@@ -12,7 +12,7 @@ public class Guerrier extends Personnage {
     public Guerrier(){
         super();
         ListArme = new ArrayList<>();
-        bouclier= new Bouclier(5,"Doran Shield");
+        bouclier= new Bouclier(7,"Doran Shield");
         epee = new  Epee(17,"Doran Sword");
         ListArme.add(epee);
         ListArme.add(bouclier);
