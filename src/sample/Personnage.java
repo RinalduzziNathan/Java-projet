@@ -37,6 +37,7 @@ public abstract class Personnage {
     boolean UtiliserMana(int cout){
         //compter le mana seulement si on a assez de mana
         if(mana-cout<0){
+            mana =0;
             return false;
         }else {
             mana = mana - cout;
