@@ -14,6 +14,7 @@ public class Mage extends Personnage {
     //construc avec sorts par défaut et stats de base de perso
     public Mage(){
         super();
+        TypePerso = "Mage";
         ListSort = new ArrayList<>();
         Sort1 = new Sort(25,10,"Court-Circuits");
         SortUltime = new Sort(75,50,"Tempete de Luden");
@@ -23,6 +24,7 @@ public class Mage extends Personnage {
     //construc avec sorts par défaut et stats parametrable
     public Mage(int parampv,int parammana,int paramlvl, String paramNom){
         super(parampv,parammana,paramlvl,paramNom);
+        TypePerso = "Mage";
         ListSort = new ArrayList<>();
         Sort1 = new Sort(25,10,"Court-Circuits");
         SortUltime = new Sort(75,50,"Tempete de Luden");
@@ -32,6 +34,7 @@ public class Mage extends Personnage {
     //construct completement parametrable, pas de sort par défaut
     public Mage(int parampv,int parammana,int paramlvl, String paramNom, Sort sort1, Sort sortult){
         super(parampv,parammana,paramlvl,paramNom);
+        TypePerso = "Mage";
         Sort1 = sort1;
         SortUltime = sortult;
         ListSort = new ArrayList<>();

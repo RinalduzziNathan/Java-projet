@@ -11,6 +11,7 @@ public class Guerrier extends Personnage {
 
     public Guerrier(){
         super();
+        TypePerso = "Guerrier";
         ListArme = new ArrayList<>();
         bouclier= new Bouclier(7,"Doran Shield");
         epee = new  Epee(17,"Doran Sword");
@@ -19,6 +20,7 @@ public class Guerrier extends Personnage {
     }
     public Guerrier(int parampv, int parammana, int paramlvl, String paramNom){
         super(parampv,parammana,paramlvl,paramNom);
+        TypePerso = "Guerrier";
         ListArme = new ArrayList<>();
         bouclier= new Bouclier(5,"Doran Shield");
         epee = new  Epee(17,"Doran Sword");

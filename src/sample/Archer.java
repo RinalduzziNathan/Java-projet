@@ -11,6 +11,7 @@ public class Archer extends Personnage {
 
     public Archer(){
         super();
+        TypePerso = "Archer";
         nbFleche =5;
         ListArme = new ArrayList<>();
         arc= new Arc(45,"Bow");
@@ -20,6 +21,7 @@ public class Archer extends Personnage {
 
     public Archer(int parampv,int parammana,int paramlvl, String paramNom, int nbfleche){
         super(parampv,parammana,paramlvl,paramNom);
+        TypePerso = "Archer";
         nbFleche =nbfleche;
         ListArme = new ArrayList<>();
         arc= new Arc(45,"Bow");
@@ -29,6 +31,7 @@ public class Archer extends Personnage {
 
     public Archer(int parampv,int parammana,int paramlvl, String paramNom, int nbfleche, Arc paramArc){
         super(parampv,parammana,paramlvl,paramNom);
+        TypePerso = "Archer";
         nbFleche =nbfleche;
         ListArme = new ArrayList<>();
         arc= paramArc;

@@ -7,6 +7,8 @@ public abstract class Personnage {
     private int PvMax;
     private int ManaMax;
 
+    //variable utilisée pour la sauvegarde des perso en fichier
+    protected String TypePerso;
 
     private int pv;
     private int mana;
@@ -75,6 +77,7 @@ public abstract class Personnage {
 
     // les get/set
 
+    public String getTypePerso(){return TypePerso;}
 
     public int getPvMax() {
         return PvMax;
