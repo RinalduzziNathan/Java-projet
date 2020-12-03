@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 
 public class Mage extends Personnage {
@@ -14,6 +16,7 @@ public class Mage extends Personnage {
     //construc avec sorts par défaut et stats de base de perso
     public Mage(){
         super();
+        imgClass = new Image("https://rinalduzzinathan.github.io/RinalduzziNathan/imgrpg/mage.png");
         TypePerso = "Mage";
         ListSort = new ArrayList<>();
         Sort1 = new Sort(25,10,"Court-Circuits");
@@ -25,6 +28,7 @@ public class Mage extends Personnage {
     public Mage(int parampv,int parammana,int paramlvl, String paramNom){
         super(parampv,parammana,paramlvl,paramNom);
         TypePerso = "Mage";
+        imgClass = new Image("https://rinalduzzinathan.github.io/RinalduzziNathan/imgrpg/mage.png");
         ListSort = new ArrayList<>();
         Sort1 = new Sort(25,10,"Court-Circuits");
         SortUltime = new Sort(75,50,"Tempete de Luden");
@@ -34,6 +38,7 @@ public class Mage extends Personnage {
     //construct completement parametrable, pas de sort par défaut
     public Mage(int parampv,int parammana,int paramlvl, String paramNom, Sort sort1, Sort sortult){
         super(parampv,parammana,paramlvl,paramNom);
+        imgClass = new Image("https://rinalduzzinathan.github.io/RinalduzziNathan/imgrpg/mage.png");
         TypePerso = "Mage";
         Sort1 = sort1;
         SortUltime = sortult;

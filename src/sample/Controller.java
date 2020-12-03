@@ -1,10 +1,14 @@
 package sample;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 import javafx.fxml.FXML;
 
@@ -34,12 +38,32 @@ public class Controller {
     @FXML
     ImageView guerrier;
 
+    @FXML
+    Label JoueurNom;
+    @FXML
+    Label vieJoueur;
+    @FXML
+    Label manaJoueur;
+    @FXML
+    Label lvlJoueur;
+
+
+    @FXML
+    ImageView imageAllie;
+    @FXML
+    ImageView imageEnnemie;
+
+
+
     Image mageImg;
     Image archerImg;
     Image guerrierImg;
 
-
+    //variable gerant le personnage crée dans le menu crée le perso
     Personnage persoCree;
+
+    //variable gerant le joueur, est chargée depuis un fichier txt et remplie suivant les caractéristiques du fichier
+    Personnage Joueur;
 
 
 
@@ -98,17 +122,13 @@ public class Controller {
 
                     writer.write(persoCree.getTypePerso());
                     writer.write("\n");
-                    writer.write(persoCree.getNom());
-                    writer.write("\n");
                     writer.write( Integer.toString(persoCree.getPv()));
-                    writer.write("\n");
-                    writer.write(Integer.toString(persoCree.getPvMax()));
                     writer.write("\n");
                     writer.write(Integer.toString(persoCree.getMana()));
                     writer.write("\n");
-                    writer.write(Integer.toString(persoCree.getManaMax()));
-                    writer.write("\n");
                     writer.write(Integer.toString(persoCree.getLvl()));
+                    writer.write("\n");
+                    writer.write(persoCree.getNom());
                     writer.write("\n");
                     writer.close();
                 }
@@ -121,11 +141,44 @@ public class Controller {
     }
 
     @FXML
-    public void OpenFile(){
+    public void OpenFile() throws FileNotFoundException {
+        //s'assurer que le joueur est nul
+        Joueur = null;
         Stage stage = new Stage();
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.showOpenDialog(stage);
+        fileChooser.setTitle("Ouvrir un perso .txt");
+        fileChooser.setInitialDirectory(new File("perso"));
+        File myObj = fileChooser.showOpenDialog(stage);
+        Scanner myReader = new Scanner(myObj);
+
+        //lire le fichier choisi et le sauvegarder dans un arrayList
+        ArrayList<String> InfoFichier = new ArrayList<>();
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            InfoFichier.add(data);
+        }
+
+        //créer le joueur suivant sa class
+        if(InfoFichier.get(0).equals("Guerrier")){
+            Joueur= new Guerrier(Integer.parseInt(InfoFichier.get(1)),Integer.parseInt(InfoFichier.get(2)),Integer.parseInt(InfoFichier.get(3)),InfoFichier.get(4));
+            imageAllie.setImage(Joueur.getImg());
+
+
+        }else if(InfoFichier.get(0).equals("Mage")){
+            Joueur= new Mage(Integer.parseInt(InfoFichier.get(1)),Integer.parseInt(InfoFichier.get(2)),Integer.parseInt(InfoFichier.get(3)),InfoFichier.get(4));
+            imageAllie.setImage(Joueur.getImg());
+        }else if(InfoFichier.get(0).equals("Archer")){
+
+            Joueur= new Archer(Integer.parseInt(InfoFichier.get(1)),Integer.parseInt(InfoFichier.get(2)),Integer.parseInt(InfoFichier.get(3)),InfoFichier.get(4),5);
+            imageAllie.setImage(Joueur.getImg());
+        }
+        JoueurNom.setText(Joueur.getNom());
+        vieJoueur.setText(String.valueOf(Joueur.getPv()));
+        manaJoueur.setText(String.valueOf(Joueur.getMana()));
+        lvlJoueur.setText(String.valueOf(Joueur.getLvl()));
+
     }
+
+
 
 }

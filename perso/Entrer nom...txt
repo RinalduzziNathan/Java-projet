@@ -1,7 +1,0 @@
-Guerrier
-Entrer nom..
-100
-100
-100
-100
-1

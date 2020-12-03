@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.image.Image;
+
 public abstract class Personnage {
 
 
@@ -9,6 +11,7 @@ public abstract class Personnage {
 
     //variable utilisée pour la sauvegarde des perso en fichier
     protected String TypePerso;
+    protected Image imgClass;
 
     private int pv;
     private int mana;
@@ -78,6 +81,7 @@ public abstract class Personnage {
     // les get/set
 
     public String getTypePerso(){return TypePerso;}
+    public Image getImg(){return imgClass;}
 
     public int getPvMax() {
         return PvMax;
