@@ -38,7 +38,7 @@ public class Controller {
     @FXML
     ImageView guerrier;
 
-    @FXML
+     @FXML
     Label JoueurNom;
     @FXML
     Label vieJoueur;
@@ -46,6 +46,15 @@ public class Controller {
     Label manaJoueur;
     @FXML
     Label lvlJoueur;
+
+    @FXML
+    Label adversaireNom;
+    @FXML
+    Label vieEnnemie;
+    @FXML
+    Label manaEnnemie;
+    @FXML
+    Label lvlEnnemie;
 
 
     @FXML
@@ -64,6 +73,8 @@ public class Controller {
 
     //variable gerant le joueur, est chargée depuis un fichier txt et remplie suivant les caractéristiques du fichier
     Personnage Joueur;
+    //variable gerant l'adversaire
+    Personnage Adversaire;
 
 
 
@@ -176,6 +187,24 @@ public class Controller {
         vieJoueur.setText(String.valueOf(Joueur.getPv()));
         manaJoueur.setText(String.valueOf(Joueur.getMana()));
         lvlJoueur.setText(String.valueOf(Joueur.getLvl()));
+
+    }
+
+    @FXML
+    public void GenererEnnemie(){
+        Adversaire = new Archer(150,50,1,"Serylda",4);
+        imageEnnemie.setImage(Adversaire.getImg());
+        adversaireNom.setText(Adversaire.getNom());
+        vieEnnemie.setText(String.valueOf(Adversaire.getPv()));
+        manaEnnemie.setText(String.valueOf(Adversaire.getMana()));
+        lvlEnnemie.setText(String.valueOf(Adversaire.getLvl()));
+
+    }
+
+    @FXML
+    public void fight(){
+
+
 
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -23,7 +24,13 @@
                     </rowConstraints>
                      <children>
                         <Button fx:id="btnCreaPerso" contentDisplay="CENTER" mnemonicParsing="false" onAction="#CreationPerso" prefHeight="35.0" prefWidth="127.0" text="Creation Personnage" textAlignment="CENTER" textOverrun="CLIP" GridPane.halignment="CENTER" />
-                        <Button fx:id="buttonJouer" mnemonicParsing="false" onAction="#ButtonJouer" text="Jouer" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button fx:id="buttonJouer" graphicTextGap="5.0" mnemonicParsing="false" onAction="#ButtonJouer" prefHeight="40.0" prefWidth="96.0" text="Jouer" textOverrun="WORD_ELLIPSIS" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Consolas Italic" size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets></Button>
                      </children>
                   </GridPane>
                </children>
@@ -32,7 +39,7 @@
                <children>
                   <Pane fx:id="paneJouer" prefHeight="498.0" prefWidth="405.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <SplitPane dividerPositions="0.5502283105022832" layoutX="-3.0" layoutY="92.0" prefHeight="498.0" prefWidth="503.0">
+                        <SplitPane dividerPositions="0.5189620758483033" layoutX="-3.0" layoutY="92.0" prefHeight="498.0" prefWidth="503.0">
                           <items>
                             <AnchorPane prefHeight="405.0" prefWidth="243.0">
                                  <children>
@@ -46,7 +53,7 @@
                                        <font>
                                           <Font size="14.0" />
                                        </font></Label>
-                                    <Label layoutX="180.0" layoutY="109.0" text="Lvl " textFill="#7b00ff">
+                                    <Label layoutX="181.0" layoutY="101.0" text="Lvl " textFill="#7b00ff">
                                        <font>
                                           <Font name="Consolas" size="13.0" />
                                        </font></Label>
@@ -64,20 +71,56 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="lvlJoueur" layoutX="220.0" layoutY="109.0" text="0" textFill="#8000ff">
+                                    <Label fx:id="lvlJoueur" layoutX="220.0" layoutY="99.0" text="0" textFill="#8000ff">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
                                  </children></AnchorPane>
-                            <AnchorPane prefHeight="496.0" prefWidth="0.0">
+                            <AnchorPane prefHeight="496.0" prefWidth="247.0">
                                  <children>
                                     <TilePane layoutX="-29.0" layoutY="248.0" prefHeight="248.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="248.0" />
-                                    <ImageView fx:id="imageEnnemie" fitHeight="180.0" fitWidth="188.0" layoutX="-11.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="imageEnnemie" fitHeight="142.0" fitWidth="140.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label layoutX="152.0" layoutY="23.0" text="Pv" textFill="RED">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="152.0" layoutY="54.0" text="Mana" textFill="#0080ff">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="152.0" layoutY="101.0" text="Lvl" textFill="#8d009a">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="vieEnnemie" layoutX="182.0" layoutY="23.0" text="0" textFill="RED">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="manaEnnemie" layoutX="201.0" layoutY="52.0" text="0" textFill="#0099ff">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lvlEnnemie" layoutX="187.0" layoutY="101.0" text="0" textFill="#9600a1">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="adversaireNom" layoutX="28.0" layoutY="153.0" text="Nom">
+                                       <font>
+                                          <Font name="Droid Serif Bold Italic" size="17.0" />
+                                       </font></Label>
                                  </children></AnchorPane>
                           </items>
                         </SplitPane>
-                        <Button fx:id="loadPerso" layoutX="265.0" layoutY="24.0" mnemonicParsing="false" onAction="#OpenFile" text="Charger Personnage" />
+                        <Button fx:id="loadPerso" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#OpenFile" prefHeight="25.0" prefWidth="125.0" text="Charger Personnage" />
+                        <Button fx:id="genererEnnemlie" layoutX="149.0" layoutY="34.0" mnemonicParsing="false" onAction="#GenererEnnemie" text="Generer Ennemie" />
+                        <Button fx:id="combattre" disable="true" layoutX="268.0" layoutY="34.0" mnemonicParsing="false" onAction="#fight" text="Combattre ! " textFill="RED" />
                      </children>
                   </Pane>
 
